@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ru.javaops</groupId>
-    <artifactId>Restraunt-voting-RESP-API</artifactId>
+    <artifactId>Restaurant-voting-RESP-API</artifactId>
     <version>1.0</version>
 
     <name>Restaurant Voting Application</name>
