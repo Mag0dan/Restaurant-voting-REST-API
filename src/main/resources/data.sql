@@ -1,8 +1,7 @@
 INSERT INTO USERS (name, email, password)
 VALUES ('User', 'user@yandex.ru', '{noop}password'),
        ('Admin', 'admin@gmail.com', '{noop}admin'),
-       ('Guest', 'guest@gmail.com', '{noop}guest'),
-       ('User2', 'user2@yandex.ru', '{noop}password2');
+       ('Guest', 'guest@gmail.com', '{noop}guest');
 
 INSERT INTO USER_ROLE (role, user_id)
 VALUES ('USER', 1),
@@ -17,8 +16,7 @@ VALUES  ('Столовая №1'),
 
 INSERT INTO VOTE (USER_ID, RESTAURANT_ID)
 VALUES  (1, 1),
-        (2, 1),
-        (4, 3);
+        (2, 1);
 
 INSERT INTO DISH (NAME, PRICE, RESTAURANT_ID)
 VALUES ('Картофельное пюре', 350, 1),

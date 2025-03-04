@@ -6,6 +6,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDate;
 
@@ -20,10 +22,10 @@ public class Vote {
     @Id
     @JoinColumn(name = "user_id", nullable = false)
     @NotNull
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
     @Column(name = "vote_date", nullable = false, columnDefinition = "date default now()", updatable = false)
-    @Id
     @NotNull
     private LocalDate date;
 

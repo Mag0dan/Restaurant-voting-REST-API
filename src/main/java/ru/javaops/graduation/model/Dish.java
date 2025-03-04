@@ -6,6 +6,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDate;
 
@@ -17,6 +19,7 @@ import java.time.LocalDate;
 public class Dish extends NamedEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @NotNull
     private Restaurant restaurant;
 
@@ -26,4 +29,16 @@ public class Dish extends NamedEntity {
 
     @Column(name = "price", columnDefinition = "long default 0")
     long price;
+
+    public Dish(Integer id, String name, LocalDate date, long price) {
+        super(id, name);
+        this.date = date;
+        this.price = price;
+    }
+
+    public Dish(Integer id, String name, long price) {
+        super(id, name);
+        this.date = LocalDate.now();
+        this.price = price;
+    }
 }
