@@ -2,7 +2,6 @@ package ru.javaops.graduation.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,11 +14,10 @@ import java.time.LocalDate;
 @Table(name = "vote", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "vote_date"}, name = "vote_unique_user_date_idx")})
 @Getter
 @Setter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Vote {
+@NoArgsConstructor
+public class Vote extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Id
     @JoinColumn(name = "user_id", nullable = false)
     @NotNull
     @OnDelete(action = OnDeleteAction.CASCADE)

@@ -1,17 +1,11 @@
 package ru.javaops.graduation.repository;
 
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.javaops.graduation.model.Restaurant;
 
-import java.time.LocalDate;
-import java.util.List;
-
+@Repository
 @Transactional(readOnly = true)
 public interface RestaurantRepository extends BaseRepository<Restaurant> {
-    @Query("SELECT r from Restaurant r LEFT JOIN FETCH r.dishes d WHERE r.id=?1 and (d.date=?2 or d.id is null)")
-    Restaurant getWithDishes(int id, LocalDate date);
 
-    @Query("SELECT r from Restaurant r LEFT JOIN FETCH r.dishes d WHERE (d.date=?1 or d.id is null)")
-    List<Restaurant> getAllWithDishes(LocalDate date);
 }

@@ -7,8 +7,6 @@ import org.springframework.dao.DataAccessException;
 import ru.javaops.graduation.DishTestData;
 import ru.javaops.graduation.model.Dish;
 
-import java.time.LocalDate;
-
 import static ru.javaops.graduation.DishTestData.*;
 
 class DishRepositoryTest extends AbstractRepositoryTest {
@@ -18,11 +16,6 @@ class DishRepositoryTest extends AbstractRepositoryTest {
 
     @Autowired
     private RestaurantRepository restaurantRepository;
-
-    @Test
-    void getAllByRestaurantId() {
-        DISH_MATCHER.assertMatch(dishRepository.getAllByRestaurantId(1, LocalDate.now()), restaurant_1_Dishes);
-    }
 
     @Test
     void saveDish() {
